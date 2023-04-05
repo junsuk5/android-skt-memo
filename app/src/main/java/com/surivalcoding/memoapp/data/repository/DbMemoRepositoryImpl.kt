@@ -2,8 +2,9 @@ package com.surivalcoding.memoapp.data.repository
 
 import com.surivalcoding.memoapp.data.local.MemoDao
 import com.surivalcoding.memoapp.data.model.Memo
+import javax.inject.Inject
 
-class DbMemoRepositoryImpl(
+class DbMemoRepositoryImpl @Inject constructor(
     private val dao: MemoDao
 ): MemoRepository {
 
