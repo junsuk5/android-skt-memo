@@ -12,7 +12,10 @@
         android:theme="@style/Theme.MemoApp"
         tools:targetApi="31">
         <activity
-            android:name=".CreateMemoActivity"
+            android:name=".ui.create.CreateMemoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.update.UpdateMemoActivity"
             android:exported="false" />
         <activity
             android:name=".ui.memolist.MainActivity"
