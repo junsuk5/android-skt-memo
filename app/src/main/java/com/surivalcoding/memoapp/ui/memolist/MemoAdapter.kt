@@ -7,7 +7,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil.ItemCallback
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.surivalcoding.memoapp.data.local.MemoDao
 import com.surivalcoding.memoapp.data.model.Memo
+import javax.inject.Inject
 
 class MemoAdapter(
     private val onClicked: (Memo) -> Unit,

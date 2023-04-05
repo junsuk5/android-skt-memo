@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 data class MainUiState(
     val items: List<Memo> = emptyList(),
@@ -16,7 +17,7 @@ data class MainUiState(
 )
 
 @HiltViewModel
-class MainViewModel(
+class MainViewModel @Inject constructor(
     private val repository: MemoRepository
 ) : ViewModel() {
 

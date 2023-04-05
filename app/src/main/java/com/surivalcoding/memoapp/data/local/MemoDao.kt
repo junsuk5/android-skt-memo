@@ -5,7 +5,7 @@ import com.surivalcoding.memoapp.data.model.Memo
 
 @Dao
 interface MemoDao {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(memo: Memo)
 
     @Update
