@@ -25,19 +25,18 @@ class MainViewModel @Inject constructor(
     val state = _state.asStateFlow()
 
     init {
-        loadMemo()
+        viewModelScope.launch {
+            loadMemo()
+        }
     }
 
     fun insertMemo(content: String) {
         viewModelScope.launch {
             repository.insert(
-                Memo(
-                    id = 100,
-                    content = content,
-                )
+                Memo(content = content)
             )
+            loadMemo()
         }
-        loadMemo()
     }
 
     fun selectMemo(memo: Memo) {
@@ -53,8 +52,8 @@ class MainViewModel @Inject constructor(
                     it.copy(content = content)
                 )
             }
+            loadMemo()
         }
-        loadMemo()
 
         _state.update {
             it.copy(selectedMemo = null)
@@ -64,17 +63,15 @@ class MainViewModel @Inject constructor(
     fun deleteMemo(memo: Memo) {
         viewModelScope.launch {
             repository.delete(memo)
+            loadMemo()
         }
-        loadMemo()
     }
 
-    private fun loadMemo() {
-        viewModelScope.launch {
-            _state.update {
-                it.copy(
-                    items = repository.findAll()
-                )
-            }
+    private suspend fun loadMemo() {
+        _state.update {
+            it.copy(
+                items = repository.findAll()
+            )
         }
     }
 
