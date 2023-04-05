@@ -3,6 +3,7 @@ package com.surivalcoding.memoapp.ui.memolist
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.surivalcoding.memoapp.data.model.Memo
+import com.surivalcoding.memoapp.data.repository.DbMemoRepositoryImpl
 import com.surivalcoding.memoapp.data.repository.MemoRepository
 import com.surivalcoding.memoapp.data.repository.MemoryMemoRepositoryImpl
 import kotlinx.coroutines.flow.MutableStateFlow
